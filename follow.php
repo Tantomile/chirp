@@ -18,6 +18,9 @@ if ($userId && $action) {
             $stmt->bindParam(':followingId', $userId);
             $stmt->execute();
             echo json_encode(['success' => true]);
+        if ($userID === 'user_id'){
+            echo json_encode(['error' => true]);
+            
         } elseif ($action === 'unfollow') {
             $stmt = $db->prepare('DELETE FROM following WHERE follower_id = :followerId AND following_id = :followingId');
             $stmt->bindParam(':followerId', $_SESSION['user_id']);
