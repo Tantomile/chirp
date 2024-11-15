@@ -28,6 +28,7 @@ if ($userId && $action) {
             $stmt->execute();
             echo json_encode(['success' => true]);
         }
+    }
     } catch (PDOException $e) {
         echo json_encode(['success' => false, 'error' => $e->getMessage()]);
     }
